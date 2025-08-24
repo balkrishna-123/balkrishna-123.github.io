@@ -1,243 +1,234 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sample HTML5 page with accessible, responsive layout." />
-  <title>Sample HTML Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML + CSS Page</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
 
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="data:," />
+        a {
+            text-decoration: none;
+            color: #333;
+        }
 
-  <style>
-    /* Base reset */
-    *, *::before, *::after { box-sizing: border-box; }
-    html:focus-within { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      color: var(--fg);
-      background: var(--bg);
-    }
+        h1, h2, h3 {
+            margin: 0.5em 0;
+        }
 
-    /* Light/Dark theme using CSS variables */
-    :root {
-      --bg: #ffffff;
-      --fg: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --card: #f9fafb;
-      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.06);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b0f14;
-        --fg: #e5e7eb;
-        --muted: #9ca3af;
-        --border: #111827;
-        --accent: #60a5fa;
-        --card: #111827;
-      }
-    }
-    .dark {
-      --bg: #0b0f14;
-      --fg: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --accent: #60a5fa;
-      --card: #111827;
-    }
+        /* Header */
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-    /* Layout */
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: var(--bg); border-bottom: 1px solid var(--border);
-    }
-    .container { max-width: 1100px; padding: 1rem; margin: 0 auto; }
-    nav { display: flex; gap: 1rem; align-items: center; justify-content: space-between; }
-    .nav-links a {
-      text-decoration: none; color: var(--fg); padding: .5rem .75rem; border-radius: .5rem;
-    }
-    .nav-links a[aria-current="page"] { background: var(--card); }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      border: 1px solid var(--border); border-radius: .6rem; padding: .5rem .9rem;
-      background: var(--card); cursor: pointer; font: inherit;
-    }
-    .btn:hover { filter: brightness(1.05); }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-    main { padding-block: 2rem; }
-    .hero {
-      display: grid; gap: 1rem; align-items: center;
-      grid-template-columns: 1.2fr .8fr;
-    }
-    .hero h1 { line-height: 1.2; margin: 0; }
-    .hero p { color: var(--muted); margin: 0 0 1rem; }
-    .hero .card {
-      background: var(--card); padding: 1rem; border: 1px solid var(--border); border-radius: .8rem; box-shadow: var(--shadow);
-    }
+        nav ul li {
+            margin: 0 15px;
+        }
 
-    .grid {
-      display: grid; gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: .8rem; padding: 1rem; box-shadow: var(--shadow);
-    }
-    .card h3 { margin-top: 0; }
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
 
-    form { display: grid; gap: .75rem; }
-    label { font-weight: 600; }
-    input, textarea, select {
-      width: 100%; padding: .6rem .7rem; border: 1px solid var(--border);
-      border-radius: .6rem; background: transparent; color: inherit;
-    }
-    .help { font-size: .875rem; color: var(--muted); }
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0; color: var(--muted);
-    }
+        /* Gallery */
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
 
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
-      nav { flex-wrap: wrap; gap: .5rem; }
-    }
-  </style>
+        .gallery figure {
+            margin: 15px;
+            border: 2px solid #ddd;
+            padding: 10px;
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        .gallery figure:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery img {
+            max-width: 250px;
+            display: block;
+        }
+
+        /* Form */
+        form {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a href="#main" class="visually-hidden">Skip to content</a>
 
-  <header role="banner">
-    <div class="container">
-      <nav aria-label="Primary">
-        <strong>MySite</strong>
-        <div class="nav-links" role="navigation">
-          <a href="#" aria-current="page">Home</a>
-          <a href="#features">Features</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <button id="theme-toggle" class="btn" aria-pressed="false" aria-label="Toggle dark mode">🌓 Theme</button>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <h1>Advanced HTML + CSS Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#data">Data Table</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main id="main" class="container">
-    <!-- Hero section -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <h1 id="hero-title">A sleek starter template</h1>
-        <p>Semantic HTML, responsive CSS, and a sprinkle of accessible JavaScript.</p>
-        <a class="btn" href="#features">Explore features →</a>
-      </div>
-      <aside class="card" aria-label="Quick facts">
-        <h2 style="margin-top:0">Quick facts</h2>
-        <ul>
-          <li>SEO-friendly meta tags</li>
-          <li>Prefers-color-scheme + toggle</li>
-          <li>Accessible forms and nav</li>
-        </ul>
-      </aside>
+    <section id="about">
+        <h2>About This Page</h2>
+        <p>This page demonstrates <strong>advanced HTML</strong> with embedded CSS for styling. It includes responsive layouts, hover effects, tables, forms, and galleries, all in a single HTML file.</p>
     </section>
 
-    <!-- Features grid -->
-    <section id="features" aria-labelledby="features-title" style="margin-top:2rem">
-      <h2 id="features-title">Features</h2>
-      <div class="grid" role="list">
-        <article class="card" role="listitem">
-          <h3>Semantic structure</h3>
-          <p>Uses header, main, section, article, and footer for clarity and accessibility.</p>
-        </article>
-        <article class="card" role="listitem">
-          <h3>Responsive by default</h3>
-          <p>Fluid grid adapts to different screen sizes with no extra work.</p>
-        </article>
-        <article class="card" role="listitem">
-          <h3>Accessible controls</h3>
-          <p>Keyboard-friendly buttons and clear labels help all users.</p>
-        </article>
-        <article class="card" role="listitem">
-          <h3>Light/Dark theme</h3>
-          <p>Respects system preference and offers a manual toggle.</p>
-        </article>
-      </div>
+    <section id="gallery">
+        <h2>Image Gallery</h2>
+        <div class="gallery">
+            <figure>
+                <img src="https://via.placeholder.com/250" alt="Image 1">
+                <figcaption>Image 1</figcaption>
+            </figure>
+            <figure>
+                <img src="https://via.placeholder.com/250" alt="Image 2">
+                <figcaption>Image 2</figcaption>
+            </figure>
+            <figure>
+                <img src="https://via.placeholder.com/250" alt="Image 3">
+                <figcaption>Image 3</figcaption>
+            </figure>
+        </div>
     </section>
 
-    <!-- Contact form -->
-    <section id="contact" aria-labelledby="contact-title" style="margin-top:2rem">
-      <h2 id="contact-title">Contact</h2>
-      <form id="contact-form" novalidate>
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" required placeholder="Ada Lovelace" />
-          <div class="help" id="name-help">Required</div>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="you@example.com" />
-          <div class="help" id="email-help">We’ll never share your email.</div>
-        </div>
-        <div>
-          <label for="topic">Topic</label>
-          <select id="topic" name="topic" required>
-            <option value="">Choose a topic…</option>
-            <option>General</option>
-            <option>Support</option>
-            <option>Feedback</option>
-          </select>
-        </div>
-        <div>
-          <label for="msg">Message</label>
-          <textarea id="msg" name="msg" rows="5" placeholder="Your message…"></textarea>
-        </div>
-        <button class="btn" type="submit">Send message</button>
-        <p id="form-status" role="status" class="help" aria-live="polite"></p>
-      </form>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
     </section>
-  </main>
 
-  <footer role="contentinfo">
-    <div class="container">
-      <p>© <span id="year"></span> MySite. Built with plain HTML, CSS, and JS.</p>
-    </div>
-  </footer>
+    <section id="data">
+        <h2>Data Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>alice@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>bob@example.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>charlie@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-  <script>
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <footer>
+        <p>&copy; 2025 Advanced HTML + CSS Page. All rights reserved.</p>
+    </footer>
 
-    // Theme toggle: respects system preference, allows manual override
-    const toggleBtn = document.getElementById('theme-toggle');
-    const storedTheme = localStorage.getItem('theme'); // "light" | "dark" | null
-    if (storedTheme === 'dark') document.documentElement.classList.add('dark');
-    if (storedTheme === 'light') document.documentElement.classList.remove('dark');
-
-    toggleBtn.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      toggleBtn.setAttribute('aria-pressed', String(isDark));
-    });
-
-    // Basic client-side form validation (progressive enhancement)
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        status.textContent = 'Please fill in the required fields.';
-        return;
-      }
-      // fake “success”
-      status.textContent = 'Thanks! Your message has been submitted.';
-      form.reset();
-    });
-  </script>
 </body>
 </html>
-
