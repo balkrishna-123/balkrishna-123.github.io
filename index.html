@@ -1,14 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CSS Demo</title>
-  <!-- correct way to include your CSS file -->
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced HTML Example</title>
 </head>
 <body>
-  <h1>CSS DEMO</h1>
-  <p>Hello! This is styled by <code>style.css</code>.</p>
+
+    <!-- Header with Navigation -->
+    <header>
+        <h1>Welcome to My Advanced HTML Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">About</a></li>
+                <li><a href="#section2">Gallery</a></li>
+                <li><a href="#section3">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section 1: Article with Semantic HTML -->
+    <section id="section1">
+        <h2>About This Page</h2>
+        <article>
+            <h3>Introduction</h3>
+            <p>This page is created using <strong>HTML only</strong>. It uses semantic tags, forms, tables, and multimedia elements.</p>
+        </article>
+        <article>
+            <h3>Features</h3>
+            <ul>
+                <li>Semantic HTML</li>
+                <li>Forms with inputs</li>
+                <li>Tables and lists</li>
+                <li>Media elements</li>
+                <li>Accessibility features</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- Section 2: Gallery using Figure and Figcaption -->
+    <section id="section2">
+        <h2>Image Gallery</h2>
+        <figure>
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 1">
+            <figcaption>Placeholder Image 1</figcaption>
+        </figure>
+        <figure>
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 2">
+            <figcaption>Placeholder Image 2</figcaption>
+        </figure>
+        <figure>
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image 3">
+            <figcaption>Placeholder Image 3</figcaption>
+        </figure>
+    </section>
+
+    <!-- Section 3: Contact Form -->
+    <section id="section3">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <!-- Section 4: Table -->
+    <section id="section4">
+        <h2>Sample Data Table</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>alice@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>bob@example.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>charlie@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Section 5: Multimedia -->
+    <section id="section5">
+        <h2>Multimedia</h2>
+        <p>HTML5 allows embedding audio and video:</p>
+        <audio controls>
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <br><br>
+        <video width="320" height="240" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Advanced HTML Page. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
