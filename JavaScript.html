@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
+        header, footer {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        #tabs button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top:0; left:0;
+            width:100%; height:100%;
+            background: rgba(0,0,0,0.5);
+            justify-content:center;
+            align-items:center;
+        }
+        #modalContent {
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            max-width:500px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Advanced JavaScript Page</h1>
+</header>
+
+<!-- Tabs Section -->
+<section id="tabsSection">
+    <h2>Tabs Example</h2>
+    <div id="tabs">
+        <button class="active" onclick="showTab(0)">Tab 1</button>
+        <button onclick="showTab(1)">Tab 2</button>
+        <button onclick="showTab(2)">Tab 3</button>
+    </div>
+    <div id="tabContents">
+        <div class="tabContent">Content for Tab 1</div>
+        <div class="tabContent" style="display:none;">Content for Tab 2</div>
+        <div class="tabContent" style="display:none;">Content for Tab 3</div>
+    </div>
+</section>
+
+<!-- Accordion Section -->
+<section id="accordionSection">
+    <h2>Accordion Example</h2>
+    <div>
+        <button onclick="toggleAccordion(0)">Section 1</button>
+        <div class="accordionContent" style="display:none;">Details of section 1.</div>
+
+        <button onclick="toggleAccordion(1)">Section 2</button>
+        <div class="accordionContent" style="display:none;">Details of section 2.</div>
+
+        <button onclick="toggleAccordion(2)">Section 3</button>
+        <div class="accordionContent" style="display:none;">Details of section 3.</div>
+    </div>
+</section>
+
+<!-- Dynamic Table Section -->
+<section id="tableSection">
+    <h2>Dynamic Table Example</h2>
+    <table border="1" width="100%" id="dataTable">
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Alice</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+            <tr><td>2</td><td>Bob</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+        </tbody>
+    </table>
+    <button onclick="addRow()">Add Random Row</button>
+</section>
+
+<!-- Modal Example -->
+<section id="modalSection">
+    <h2>Modal Example</h2>
+    <button onclick="openModal()">Open Modal</button>
+    <div id="modal">
+        <div id="modalContent">
+            <p>This is a modal window!</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</section>
+
+<!-- Form Example -->
+<section id="formSection">
+    <h2>Form Example</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required><br><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <textarea id="message" placeholder="Message" rows="4" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="formMsg" style="color:green;"></p>
+</section>
+
+<footer>
+    &copy; 2025 Advanced JavaScript Page
+</footer>
+
+<script>
+    // Tabs
+    function showTab(index) {
+        const tabs = document.querySelectorAll('#tabs button');
+        const contents = document.querySelectorAll('.tabContent');
+        tabs.forEach((tab,i)=>tab.classList.remove('active'));
+        contents.forEach((c)=>c.style.display='none');
+        tabs[index].classList.add('active');
+        contents[index].style.display='block';
+    }
+
+    // Accordion
+    function toggleAccordion(index){
+        const acc = document.querySelectorAll('.accordionContent');
+        acc[index].style.display = acc[index].style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Dynamic Table
+    function addRow(){
+        const table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+        const id = table.rows.length + 1;
+        const names = ['Charlie','David','Eva','Frank'];
+        const name = names[Math.floor(Math.random()*names.length)];
+        const row = table.insertRow();
+        row.innerHTML = `<td>${id}</td><td>${name}</td><td><button onclick="deleteRow(this)">Delete</button></td>`;
+    }
+
+    function deleteRow(btn){
+        const row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+
+    // Modal
+    function openModal(){
+        document.getElementById('modal').style.display='flex';
+    }
+    function closeModal(){
+        document.getElementById('modal').style.display='none';
+    }
+
+    // Form Submission
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        document.getElementById('formMsg').textContent = `Thanks, ${name}! Your message is received.`;
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
