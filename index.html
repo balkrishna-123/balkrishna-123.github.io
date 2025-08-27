@@ -142,6 +142,9 @@
         <div class="col-md-2">
           <button class="btn btn-outline-light option-btn w-100" onclick="showSection('bootstrap')">Bootstrap</button>
         </div>
+        <div class="col-md-2">
+          <button class="btn btn-outline-light option-btn w-100" onclick="showSection('fullstack')">Full Stack</button>
+        </div>
       </div>
     </div>
   </section>
@@ -211,6 +214,50 @@ h1 {
       <pre>
 &lt;button class="btn btn-primary"&gt;Click Me&lt;/button&gt;
       </pre>
+      <button class="btn btn-success mt-3" onclick="showSection('home')">⬅ Back</button>
+    </div>
+  </section>
+
+  <!-- Full Stack Development Section -->
+  <section id="fullstack">
+    <div class="content-card">
+      <h2 class="fw-bold text-success">Full Stack Development</h2>
+      <p><strong>Definition:</strong> Full Stack Development involves building both the frontend and backend of a web application. A Full Stack Developer works on the complete flow of a web project, from user interface to server and database management.</p>
+      
+      <p><strong>Applications:</strong></p>
+      <ul>
+        <li>Dynamic websites and web applications</li>
+        <li>E-commerce platforms</li>
+        <li>Social media applications</li>
+        <li>Online dashboards and SaaS applications</li>
+        <li>Real-time collaboration tools</li>
+      </ul>
+
+      <p><strong>Components:</strong></p>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript, React, Angular, Vue</li>
+        <li><strong>Backend:</strong> Node.js, Express, Python, Django, PHP, APIs</li>
+        <li><strong>Database:</strong> MySQL, PostgreSQL, MongoDB, Firebase</li>
+        <li><strong>Version Control & Deployment:</strong> Git, GitHub, AWS, Heroku, Netlify</li>
+        <li><strong>Optional Skills:</strong> Authentication, Security, Cloud services, Testing</li>
+      </ul>
+
+      <p><strong>Example:</strong></p>
+      <pre>
+// Simple Node.js + Express Example
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello, Full Stack Development!');
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+      </pre>
+
       <button class="btn btn-success mt-3" onclick="showSection('home')">⬅ Back</button>
     </div>
   </section>
